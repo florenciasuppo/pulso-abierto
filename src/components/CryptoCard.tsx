@@ -1,5 +1,6 @@
 import type { CryptoCurrency } from '../types/crypto';
 import { useFavoritesStore } from '../store/favoritesStore';
+import { formatPercentage, formatUsdPrice } from '../utils/formatters';
 
 type CryptoCardProps = {
   crypto: CryptoCurrency;
@@ -24,9 +25,9 @@ export function CryptoCard({ crypto }: CryptoCardProps) {
       <h3>
         {crypto.name} ({crypto.symbol.toUpperCase()})
       </h3>
-      <p>Precio: USD ${crypto.current_price.toLocaleString()}</p>
+      <p>Precio: {formatUsdPrice(crypto.current_price)}</p>
       <p style={{ color: crypto.price_change_percentage_24h >= 0 ? 'green' : 'red' }}>
-        Variación 24h: {crypto.price_change_percentage_24h.toFixed(2)}%
+        Variación 24h: {formatPercentage(crypto.price_change_percentage_24h)}
       </p>
       <button
         type="button"

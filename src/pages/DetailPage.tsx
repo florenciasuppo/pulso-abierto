@@ -4,6 +4,7 @@ import type { CryptoCurrency } from '../types/crypto';
 import { fetchCryptoData } from '../services/cryptoService';
 import { StatusMessage } from '../components/StatusMessage';
 import { useFavoritesStore } from '../store/favoritesStore';
+import { formatPercentage, formatUsdPrice } from '../utils/formatters';
 
 export function DetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -74,10 +75,10 @@ export function DetailPage() {
           <strong>Identificador:</strong> {crypto.id}
         </p>
         <p>
-          <strong>Precio actual:</strong> USD ${crypto.current_price.toLocaleString()}
+          <strong>Precio actual:</strong> {formatUsdPrice(crypto.current_price)}
         </p>
         <p style={{ color: crypto.price_change_percentage_24h >= 0 ? 'green' : 'red' }}>
-          <strong>Variación 24 horas:</strong> {crypto.price_change_percentage_24h.toFixed(2)}%
+          <strong>Variación 24 horas:</strong> {formatPercentage(crypto.price_change_percentage_24h)}
         </p>
 
         <div style={{ marginTop: '20px' }}>
