@@ -32,7 +32,7 @@ Para ejecutar localmente, crear un archivo `.env` en la raíz del proyecto a par
 
 ## Despliegue
 
-Aplicación publicada en Vercel: https://pulso-abierto-mlz7m1ysv-pulso-abierto7.vercel.app/
+Aplicación publicada en Vercel: https://pulso-abierto-mocha.vercel.app/
 
 ## Mejora de mantenibilidad realizada
 
